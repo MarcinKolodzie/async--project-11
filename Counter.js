@@ -30,13 +30,13 @@ export const Counter = class {
         })
     }
 
-    saveAndRefetch(){
+    incAndRefetch(){
         const newNumber = this.number + 1
 
         return fetch(DB_URL, {
             method: 'PUT',
             body: JSON.stringify(newNumber)
-        })
+        }).then(() => this.fetchNumber())
     }
 
     render() {
@@ -50,7 +50,7 @@ export const Counter = class {
     }
 
     inc() {
-        this.number = this.number + 1
+        this.incAndRefetch()
         this.render()
     }
 
