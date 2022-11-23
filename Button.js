@@ -1,12 +1,15 @@
 export const Button = class {
 
-    constructor(label, onClick) {
+    constructor(label, onClick, disabled) {
         this.label = label
         this.onClick = onClick
+        this.disabled = disabled
     }
 
     render() {
         const button = document.createElement('button')
+
+        button.disabled = this.disabled
 
         button.innerText = this.label
 

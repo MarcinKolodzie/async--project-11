@@ -49,12 +49,10 @@ export const Counter = class {
         this.container.innerText = ''
 
         const h1 = new Header(this.isLoading ? '...' : this.number)
-        this.container.appendChild(h1.render())
+        const button = new Button('+', () => this.inc(), this.isLoading)
 
-        if (!this.isLoading) {
-            const button = new Button('+', () => this.inc())
-            this.container.appendChild(button.render())
-        }
+        this.container.appendChild(h1.render())
+        this.container.appendChild(button.render())
 
     }
 
